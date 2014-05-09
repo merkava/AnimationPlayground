@@ -94,7 +94,8 @@
 -(void)handleTap:(UITapGestureRecognizer *)sender {
     self.tap.enabled = NO;
     
-    NSArray *props = @[NSKernAttributeName, NSFontAttributeName, NSStrokeWidthAttributeName, NSObliquenessAttributeName, @"OppositeStroke"];
+    //NSArray *props = @[NSKernAttributeName, NSFontAttributeName, NSStrokeWidthAttributeName, NSObliquenessAttributeName, @"OppositeStroke"];
+    NSArray *props = @[NSKernAttributeName, NSFontAttributeName];
     
     self.property = props[arc4random_uniform(props.count)];
     self.view.animProperty.text = self.property;
