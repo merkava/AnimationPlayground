@@ -22,9 +22,8 @@
         [self addSubview:self.title];
         
         self.animProperty = [UILabel new];
-        self.animProperty.font = [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline];
+        self.animProperty.font = [UIFont systemFontOfSize:12.];
         [self addSubview:self.animProperty];
-
         
         self.animTitle = [UILabel new];
         self.animTitle.backgroundColor = [UIColor whiteColor];
@@ -37,10 +36,13 @@
         [title beginEditing];
         
         [title addAttribute:NSFontAttributeName
-                      value:[UIFont boldSystemFontOfSize:fontSize]
+                      value:[UIFont boldSystemFontOfSize:fontSize+4]
                       range:range];
         [title addAttribute:NSForegroundColorAttributeName
                       value:[UIColor blackColor]
+                      range:range];
+        [title addAttribute:NSStrokeColorAttributeName
+                      value:[UIColor greenColor]
                       range:range];
         
         range = NSMakeRange(6, 5);
@@ -74,8 +76,8 @@
 -(void)layoutSubviews {
     [super layoutSubviews];
     
-    self.title.frame = CGRectMake(10, 10, CGRectGetWidth(self.frame)-20, 50);
-    self.animProperty.frame = CGRectMake(CGRectGetWidth(self.frame)-150, 10, 150, 30);
+    self.title.frame = CGRectMake(10, 10, CGRectGetWidth(self.frame)-70, 50);
+    self.animProperty.frame = CGRectMake(CGRectGetWidth(self.frame)-70, 10, 70, 50);
     self.animTitle.frame = CGRectMake(10, 100, CGRectGetWidth(self.frame)-20, 200);
 }
 

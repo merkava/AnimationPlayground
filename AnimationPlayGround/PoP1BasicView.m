@@ -27,8 +27,20 @@
         self.circle.layer.cornerRadius = 40;
         [self addSubview:self.circle];
         
+        self.bouncinessLbl = [UILabel new];
+        self.bouncinessLbl.font = [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline];
+        self.bouncinessLbl.textColor = [UIColor grayColor];
+        self.bouncinessLbl.text = @"Bounciness";
+        [self addSubview:self.bouncinessLbl];
+        
         self.bounciness = [UISlider new];
         [self addSubview:self.bounciness];
+        
+        self.speedLbl = [UILabel new];
+        self.speedLbl.font = [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline];
+        self.speedLbl.text = @"Speed";
+        self.speedLbl.textColor = [UIColor grayColor];
+        [self addSubview:self.speedLbl];
         
         self.speed = [UISlider new];
         [self addSubview:self.speed];
@@ -41,19 +53,13 @@
 -(void)layoutSubviews {
     [super layoutSubviews];
     
-    self.title.frame = CGRectMake(10, 10, CGRectGetWidth(self.frame), 50);
-    self.circle.frame = CGRectMake(10, 40, 80, 80);
+    self.title.frame = CGRectMake(10, 10, CGRectGetWidth(self.frame)-100, 60);
+    self.circle.frame = CGRectMake(10, 70, 80, 80);
     
-    self.bounciness.frame = CGRectMake(CGRectGetWidth(self.frame)-80-10, 10, 80, 30);
-    self.speed.frame = CGRectMake(CGRectGetWidth(self.frame)-80-10, 50, 80, 30);
+    self.bouncinessLbl.frame = CGRectMake(CGRectGetWidth(self.frame)-80-10, 10, 80, 20);
+    self.bounciness.frame = CGRectMake(CGRectGetWidth(self.frame)-80-10, 35, 80, 30);
+    self.speedLbl.frame = CGRectMake(CGRectGetWidth(self.frame)-80-10, 70, 80, 20);
+    self.speed.frame = CGRectMake(CGRectGetWidth(self.frame)-80-10, 95, 80, 30);
 }
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
-{
-    // Drawing code
-}
-*/
 
 @end

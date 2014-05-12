@@ -13,6 +13,7 @@
 @property (nonatomic, strong) UILabel *title;
 @property (nonatomic, strong) UIView *circle;
 
+@property (nonatomic, strong) UILabel *decelerationLbl;
 @property (nonatomic, strong) UISlider *deceleration;
 
 @end

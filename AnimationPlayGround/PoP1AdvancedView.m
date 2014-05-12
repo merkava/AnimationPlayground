@@ -38,8 +38,8 @@
 -(void)layoutSubviews {
     [super layoutSubviews];
     
-    if ( self.title.frame.size.width <= 0  ) {
-        self.title.frame = CGRectMake(10, 10, CGRectGetWidth(self.frame), 50);
+    self.title.frame = CGRectMake(10, 10, CGRectGetWidth(self.frame)-20, 70);
+    if ( self.circle.frame.size.width <= 0  ) {
         self.circle.frame = CGRectMake(CGRectGetWidth(self.frame)/2-100/2, CGRectGetHeight(self.frame)/2-100/2, 100, 100);
     }
 }

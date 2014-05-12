@@ -8,12 +8,12 @@
 
 #import "PoP2AdvancedViewController.h"
 #import "POP.h"
+#import "POPCGUtils.h"
 
 @interface PoP2AdvancedViewController () <POPAnimationDelegate>
 
 @property (nonatomic, strong) POPAnimatableProperty *animatableProperty;
 @property (nonatomic, strong) NSString *property;
-@property (nonatomic, assign) CGFloat initialValue;
 @property (nonatomic, strong) UITapGestureRecognizer *tap;
 
 @end
@@ -51,15 +51,21 @@
             CGFloat value = 0;
             if ( [self.property isEqualToString:NSKernAttributeName] || [self.property isEqualToString:NSStrokeWidthAttributeName] || [self.property isEqualToString:NSBaselineOffsetAttributeName] || [self.property isEqualToString:NSObliquenessAttributeName] ) {
                 value = [[props valueForKey:self.property] floatValue];
+                values[0] = value;
                 
             } else if ( [self.property isEqualToString:@"OppositeStroke"] ) {
                 value = [[props valueForKey:NSStrokeWidthAttributeName] floatValue];
+                values[0] = value;
                 
             } else if ( [self.property isEqualToString:NSFontAttributeName] ) {
                 value = ((UIFont *)[props valueForKey:self.property]).pointSize;
+                values[0] = value;
                 
+            } else if ( [self.property isEqualToString:NSForegroundColorAttributeName] ) {
+                struct CGColor *color = ((UIColor *)[props valueForKey:self.property]).CGColor;
+                POPCGColorGetRGBAComponents(color, values);
             }
-            values[0] = value;
+            
             
         };
         // write value
@@ -73,6 +79,9 @@
                     
                 } else if ( [self.property isEqualToString:@"OppositeStroke"] ) {
                     [props setObject:@(-1*values[0]) forKey:NSStrokeWidthAttributeName];
+                    
+                } else if ( [self.property isEqualToString:NSForegroundColorAttributeName] ) {
+                    [props setObject:((UIColor *)POPUIColorRGBACreate(values)) forKey:NSForegroundColorAttributeName];
                     
                 } else {
                     UIFont *font = [UIFont fontWithName:((UIFont *)[props valueForKey:self.property]).fontName size:values[0]] ;
@@ -94,31 +103,23 @@
 -(void)handleTap:(UITapGestureRecognizer *)sender {
     self.tap.enabled = NO;
     
-    //NSArray *props = @[NSKernAttributeName, NSFontAttributeName, NSStrokeWidthAttributeName, NSObliquenessAttributeName, @"OppositeStroke"];
-    NSArray *props = @[NSKernAttributeName, NSFontAttributeName];
+    //NSArray *props = @[NSKernAttributeName, NSFontAttributeName, NSStrokeWidthAttributeName, NSObliquenessAttributeName, @"OppositeStroke", NSForegroundColorAttributeName];
+    NSArray *props = @[NSKernAttributeName, NSFontAttributeName,NSForegroundColorAttributeName];
+    
     
     self.property = props[arc4random_uniform(props.count)];
     self.view.animProperty.text = self.property;
-    
-    //Get the original value of the property
-    NSAttributedString *attrStr = [self.view.animTitle attributedText];
-    NSRange range = NSMakeRange(0, 0);
-    NSDictionary *propsStr = [attrStr attributesAtIndex:0 effectiveRange:&range];
-    CGFloat value = 0;
-    if ( [self.property isEqualToString:NSKernAttributeName] || [self.property isEqualToString:NSStrokeWidthAttributeName] || [self.property isEqualToString:NSBaselineOffsetAttributeName] || [self.property isEqualToString:NSObliquenessAttributeName] ) {
-        value = [[propsStr valueForKey:self.property] floatValue];
-        
-    } else if ( [self.property isEqualToString:NSFontAttributeName] ) {
-        value = ((UIFont *)[propsStr valueForKey:self.property]).pointSize;
-        
-    }
-    self.initialValue = value;
     
     POPSpringAnimation *spring = [POPSpringAnimation animation];
     
     spring.property = self.animatableProperty;
     spring.delegate = self;
     NSNumber *goToValue = ( IS_IPAD ) ? @(50.) : @(30.);
+    if ( [self.property isEqualToString:NSStrokeWidthAttributeName] || [self.property isEqualToString:@"OppositeStroke"] ) {
+        goToValue = @([goToValue floatValue]/5.);
+    } else if ( [self.property isEqualToString:NSForegroundColorAttributeName] ) {
+        goToValue = (id)[UIColor colorWithRed:arc4random_uniform(255)/255. green:arc4random_uniform(255)/255. blue:arc4random_uniform(255)/255. alpha:1.].CGColor;
+    }
     spring.toValue = goToValue;
     spring.springBounciness = 20;
     spring.springSpeed = 10;
@@ -140,7 +141,17 @@
             spring.name = @"endAnimation";
             spring.property = self.animatableProperty;
             spring.delegate = self;
-            spring.toValue = @(self.initialValue);
+            if ( [self.property isEqualToString:NSForegroundColorAttributeName] ) {
+                spring.toValue = (id)[UIColor colorWithRed:arc4random_uniform(255)/255. green:arc4random_uniform(255)/255. blue:arc4random_uniform(255)/255. alpha:1.].CGColor;
+                
+            } else {
+                if ( [self.property isEqualToString:NSFontAttributeName] ) {
+                    spring.toValue = @(22);
+                } else {
+                    spring.toValue = @(0);
+                }
+                
+            }
             spring.springBounciness = 20;
             spring.springSpeed = 15;
             [self.view.animTitle pop_addAnimation:spring forKey:@"random.text.property"];
@@ -149,6 +160,5 @@
         }
     }
 }
-
 
 @end

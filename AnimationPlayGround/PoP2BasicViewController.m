@@ -11,7 +11,7 @@
 
 @interface PoP2BasicViewController () <POPAnimationDelegate>
 
-@property (nonatomic, assign) CGFloat deceleration;
+@property (nonatomic, assign) CGFloat decelerationValue;
 
 @end
 
@@ -40,8 +40,8 @@
     [self.view.circle addGestureRecognizer:pan];
     
     [self.view.deceleration addTarget:self action:@selector(changeDeceleration:) forControlEvents:UIControlEventValueChanged];
-    self.deceleration = 0.96;
-    self.view.deceleration.value = 0.9;
+    self.decelerationValue = 0.987;
+    self.view.deceleration.value = 0.4;
 }
 
 -(void)handlePan:(UIPanGestureRecognizer *)sender {
@@ -55,7 +55,7 @@
         POPDecayAnimation *decayAnim = [POPDecayAnimation animationWithPropertyNamed:kPOPViewCenter];
         decayAnim.delegate = self;
         decayAnim.velocity = [NSValue valueWithCGPoint:[sender velocityInView:self.view]];
-        decayAnim.deceleration = self.deceleration;
+        decayAnim.deceleration = self.decelerationValue;
         [self.view.circle pop_addAnimation:decayAnim forKey:@"decay"];
     }
 }
@@ -81,7 +81,7 @@
 }
 
 -(void)changeDeceleration:(UISlider *)sender {
-    self.deceleration = (1-(sender.value*0.04)>=1)?0.999:1-(sender.value*0.04);
+    self.decelerationValue = (1-(sender.value*0.04)>=1)?0.999:1-(sender.value*0.04);
 }
 
 @end

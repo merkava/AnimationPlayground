@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8D93B9FF1920B99A00495401 /* POPCornerRadiusProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D93B9FE1920B99A00495401 /* POPCornerRadiusProperty.m */; };
 		8DA26D2A191CDFDF0006073B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DA26D29191CDFDF0006073B /* Foundation.framework */; };
 		8DA26D2C191CDFDF0006073B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DA26D2B191CDFDF0006073B /* CoreGraphics.framework */; };
 		8DA26D2E191CDFDF0006073B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DA26D2D191CDFDF0006073B /* UIKit.framework */; };
@@ -65,6 +66,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8D93B9FD1920B99A00495401 /* POPCornerRadiusProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POPCornerRadiusProperty.h; sourceTree = "<group>"; };
+		8D93B9FE1920B99A00495401 /* POPCornerRadiusProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = POPCornerRadiusProperty.m; sourceTree = "<group>"; };
 		8DA26D26191CDFDF0006073B /* AnimationPlayGround.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnimationPlayGround.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DA26D29191CDFDF0006073B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		8DA26D2B191CDFDF0006073B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -187,6 +190,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8D93B9FC1920B97E00495401 /* AnimatableCustomProperties */ = {
+			isa = PBXGroup;
+			children = (
+				8D93B9FD1920B99A00495401 /* POPCornerRadiusProperty.h */,
+				8D93B9FE1920B99A00495401 /* POPCornerRadiusProperty.m */,
+			);
+			name = AnimatableCustomProperties;
+			sourceTree = "<group>";
+		};
 		8DA26D1D191CDFDF0006073B = {
 			isa = PBXGroup;
 			children = (
@@ -221,6 +233,7 @@
 		8DA26D2F191CDFDF0006073B /* AnimationPlayGround */ = {
 			isa = PBXGroup;
 			children = (
+				8D93B9FC1920B97E00495401 /* AnimatableCustomProperties */,
 				8DA26DC5191CEE5F0006073B /* PopAdvanced */,
 				8DA26DB6191CE2650006073B /* PoPBasic */,
 				8DA26D5E191CE0220006073B /* CuteMenu */,
@@ -359,8 +372,8 @@
 		8DA26DB6191CE2650006073B /* PoPBasic */ = {
 			isa = PBXGroup;
 			children = (
-				8DA26DBE191CE73B0006073B /* PoP#2 */,
 				8DA26DBA191CE2B20006073B /* PoP#1 */,
+				8DA26DBE191CE73B0006073B /* PoP#2 */,
 			);
 			name = PoPBasic;
 			sourceTree = "<group>";
@@ -390,8 +403,8 @@
 		8DA26DC5191CEE5F0006073B /* PopAdvanced */ = {
 			isa = PBXGroup;
 			children = (
-				8DA26DCD191D07860006073B /* PoP#2 */,
 				8DA26DC9191CEE7B0006073B /* PoP#1 */,
+				8DA26DCD191D07860006073B /* PoP#2 */,
 			);
 			name = PopAdvanced;
 			sourceTree = "<group>";
@@ -532,6 +545,7 @@
 				8DA26DD0191D07950006073B /* PoP2AdvancedViewController.m in Sources */,
 				8DA26DC1191CE74D0006073B /* PoP2BasicViewController.m in Sources */,
 				8DA26D65191CE0220006073B /* CuteDynamicItemBehavior.m in Sources */,
+				8D93B9FF1920B99A00495401 /* POPCornerRadiusProperty.m in Sources */,
 				8DA26DA4191CE0C50006073B /* POPAnimatableProperty.mm in Sources */,
 				8DA26DBD191CE2C90006073B /* PoP1BasicView.m in Sources */,
 				8DA26DB3191CE0C50006073B /* POPSpringAnimation.mm in Sources */,
@@ -754,6 +768,7 @@
 				8DA26D54191CDFE00006073B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8DA26D55191CDFE00006073B /* Build configuration list for PBXNativeTarget "AnimationPlayGroundTests" */ = {
 			isa = XCConfigurationList;
@@ -762,6 +777,7 @@
 				8DA26D57191CDFE00006073B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

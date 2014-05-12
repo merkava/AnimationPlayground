@@ -26,8 +26,13 @@
         self.circle.layer.cornerRadius = 40;
         [self addSubview:self.circle];
         
+        self.decelerationLbl = [UILabel new];
+        self.decelerationLbl.font = [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline];
+        self.decelerationLbl.textColor = [UIColor grayColor];
+        self.decelerationLbl.text = @"Deceleration";
+        [self addSubview:self.decelerationLbl];
+        
         self.deceleration = [UISlider new];
-        self.deceleration.value = 0.5;
         [self addSubview:self.deceleration];
         
     }
@@ -38,9 +43,11 @@
 -(void)layoutSubviews {
     [super layoutSubviews];
     
-    self.title.frame = CGRectMake(10, 10, CGRectGetWidth(self.frame), 100);
-    self.circle.frame = CGRectMake(10, 40, 80, 80);
-    self.deceleration.frame = CGRectMake(CGRectGetWidth(self.frame)-80-10, 10, 80, 30);
+    self.title.frame = CGRectMake(10, 10, CGRectGetWidth(self.frame)-100, 70);
+    self.circle.frame = CGRectMake(10, 70, 80, 80);
+    
+    self.decelerationLbl.frame = CGRectMake(CGRectGetWidth(self.frame)-80-10, 10, 90, 20);
+    self.deceleration.frame = CGRectMake(CGRectGetWidth(self.frame)-80-10, 35, 80, 30);
 }
 /*
  // Only override drawRect: if you perform custom drawing.

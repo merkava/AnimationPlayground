@@ -37,11 +37,7 @@ static NSArray *kMenuStruct = nil;
                           },
                         @{@"title"      : @"Example",
                           @"controller" : @"",
-                          @"submenu"    : @[@{@"title":@"Example#1", @"controller":@""},
-                                            @{@"title":@"Example#2", @"controller":@""},
-                                            @{@"title":@"Example#3", @"controller":@""},
-                                            @{@"title":@"Example#4", @"controller":@""}
-                                            ]
+                          @"submenu"    : @[@{@"title":@"Example#1", @"controller":@""}]
                           }
                         ];
     }
@@ -67,8 +63,8 @@ static NSArray *kMenuStruct = nil;
     label.numberOfLines = 0;
     label.text = @"Press the '+' to open/close the menu.\n LongPress the Home button to move the menu around.";
     label.textAlignment = NSTextAlignmentCenter;
+    label.autoresizingMask = UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleWidth;
     label.font = [UIFont preferredFontForTextStyle:UIFontTextStyleHeadline];
-    label.frame = CGRectMake(0, 0, 320, 480);
     [self.view addSubview:label];
 }
 

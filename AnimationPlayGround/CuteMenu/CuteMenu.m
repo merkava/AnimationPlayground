@@ -61,6 +61,7 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
+        self.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         // Initialization code
         self.homeButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [self.homeButton setTitle:@"Home" forState:UIControlStateNormal];
@@ -89,7 +90,7 @@
         [self.container.view addSubview:self];
 
         [UIView animateWithDuration:0.35 animations:^{
-            self.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.4];
+            self.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.6];
         }];
 
         //Buttons!

@@ -8,6 +8,7 @@
 
 #import "PoP1AdvancedViewController.h"
 #import "POP.h"
+#import "POPCornerRadiusProperty.h"
 
 @interface PoP1AdvancedViewController ()
 
@@ -56,22 +57,9 @@
     self.view.circle.userInteractionEnabled = NO;
     //pop stuff, just because I like it! :)
     //https://github.com/facebook/pop
-    POPAnimatableProperty *prop = [POPAnimatableProperty propertyWithName:@"com.mobgen.layer.cornerRadius" initializer:^(POPMutableAnimatableProperty *prop) {
-        // read value
-        prop.readBlock = ^(id obj, CGFloat values[]) {
-            values[0] = [obj cornerRadius];
-        };
-        // write value
-        prop.writeBlock = ^(id obj, const CGFloat values[]) {
-            [obj setCornerRadius:values[0]];
-        };
-        // dynamics threshold
-        prop.threshold = 0.01;
-    }];
-    
     POPBasicAnimation *cornerRadius = [POPBasicAnimation easeOutAnimation];
     cornerRadius.delegate = self;
-    cornerRadius.property = prop;
+    cornerRadius.property = [POPCornerRadiusProperty propertyWithName:@"cornerRadius"];
     if ( self.view.circle.layer.cornerRadius > 0 ) {
         self.reverse = YES;
     } else {
@@ -90,7 +78,7 @@
         if ( [anim.name isEqualToString:@"cornerRadius"] ) {
             POPSpringAnimation *color = [POPSpringAnimation animationWithPropertyNamed:kPOPLayerBackgroundColor];
             color.delegate = self;
-            color.toValue = ( self.reverse ) ? (id)[UIColor redColor].CGColor : (id)[UIColor colorWithRed:arc4random_uniform(255)/255. green:arc4random_uniform(255)/255. blue:arc4random_uniform(255)/255. alpha:1.].CGColor;
+            color.toValue = (id)[UIColor colorWithRed:arc4random_uniform(255)/255. green:arc4random_uniform(255)/255. blue:arc4random_uniform(255)/255. alpha:1.].CGColor;
             color.springBounciness = 20;
             color.springSpeed = 1;
             [self.view.circle.layer pop_addAnimation:color forKey:@"color"];
