@@ -12,6 +12,7 @@
 @interface PoP2BasicViewController () <POPAnimationDelegate>
 
 @property (nonatomic, assign) CGFloat decelerationValue;
+@property (nonatomic, assign) CGFloat decelerationValue2;
 
 @end
 

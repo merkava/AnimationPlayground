@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		8D93B9FF1920B99A00495401 /* POPCornerRadiusProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D93B9FE1920B99A00495401 /* POPCornerRadiusProperty.m */; };
+		8D93BA0C19235D1500495401 /* AutoLayoutExampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D93BA0B19235D1500495401 /* AutoLayoutExampleViewController.m */; };
+		8D93BA0F19235D1F00495401 /* AutoLayoutExampleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D93BA0E19235D1F00495401 /* AutoLayoutExampleView.m */; };
 		8DA26D2A191CDFDF0006073B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DA26D29191CDFDF0006073B /* Foundation.framework */; };
 		8DA26D2C191CDFDF0006073B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DA26D2B191CDFDF0006073B /* CoreGraphics.framework */; };
 		8DA26D2E191CDFDF0006073B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DA26D2D191CDFDF0006073B /* UIKit.framework */; };
@@ -68,6 +70,10 @@
 /* Begin PBXFileReference section */
 		8D93B9FD1920B99A00495401 /* POPCornerRadiusProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POPCornerRadiusProperty.h; sourceTree = "<group>"; };
 		8D93B9FE1920B99A00495401 /* POPCornerRadiusProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = POPCornerRadiusProperty.m; sourceTree = "<group>"; };
+		8D93BA0A19235D1500495401 /* AutoLayoutExampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutoLayoutExampleViewController.h; sourceTree = "<group>"; };
+		8D93BA0B19235D1500495401 /* AutoLayoutExampleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AutoLayoutExampleViewController.m; sourceTree = "<group>"; };
+		8D93BA0D19235D1F00495401 /* AutoLayoutExampleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutoLayoutExampleView.h; sourceTree = "<group>"; };
+		8D93BA0E19235D1F00495401 /* AutoLayoutExampleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AutoLayoutExampleView.m; sourceTree = "<group>"; };
 		8DA26D26191CDFDF0006073B /* AnimationPlayGround.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnimationPlayGround.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DA26D29191CDFDF0006073B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		8DA26D2B191CDFDF0006073B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -199,6 +205,17 @@
 			name = AnimatableCustomProperties;
 			sourceTree = "<group>";
 		};
+		8D93BA0919235D0400495401 /* AutoLayout */ = {
+			isa = PBXGroup;
+			children = (
+				8D93BA0A19235D1500495401 /* AutoLayoutExampleViewController.h */,
+				8D93BA0B19235D1500495401 /* AutoLayoutExampleViewController.m */,
+				8D93BA0D19235D1F00495401 /* AutoLayoutExampleView.h */,
+				8D93BA0E19235D1F00495401 /* AutoLayoutExampleView.m */,
+			);
+			name = AutoLayout;
+			sourceTree = "<group>";
+		};
 		8DA26D1D191CDFDF0006073B = {
 			isa = PBXGroup;
 			children = (
@@ -233,6 +250,7 @@
 		8DA26D2F191CDFDF0006073B /* AnimationPlayGround */ = {
 			isa = PBXGroup;
 			children = (
+				8D93BA0919235D0400495401 /* AutoLayout */,
 				8D93B9FC1920B97E00495401 /* AnimatableCustomProperties */,
 				8DA26DC5191CEE5F0006073B /* PopAdvanced */,
 				8DA26DB6191CE2650006073B /* PoPBasic */,
@@ -544,7 +562,9 @@
 				8DA26DAB191CE0C50006073B /* POPBasicAnimation.mm in Sources */,
 				8DA26DD0191D07950006073B /* PoP2AdvancedViewController.m in Sources */,
 				8DA26DC1191CE74D0006073B /* PoP2BasicViewController.m in Sources */,
+				8D93BA0F19235D1F00495401 /* AutoLayoutExampleView.m in Sources */,
 				8DA26D65191CE0220006073B /* CuteDynamicItemBehavior.m in Sources */,
+				8D93BA0C19235D1500495401 /* AutoLayoutExampleViewController.m in Sources */,
 				8D93B9FF1920B99A00495401 /* POPCornerRadiusProperty.m in Sources */,
 				8DA26DA4191CE0C50006073B /* POPAnimatableProperty.mm in Sources */,
 				8DA26DBD191CE2C90006073B /* PoP1BasicView.m in Sources */,

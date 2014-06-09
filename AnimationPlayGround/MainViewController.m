@@ -37,7 +37,7 @@ static NSArray *kMenuStruct = nil;
                           },
                         @{@"title"      : @"Example",
                           @"controller" : @"",
-                          @"submenu"    : @[@{@"title":@"Example#1", @"controller":@""}]
+                          @"submenu"    : @[@{@"title":@"Example#1", @"controller":@"AutoLayoutExampleViewController"}]
                           }
                         ];
     }
